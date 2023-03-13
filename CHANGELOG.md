@@ -7,11 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-## v3.4.0 - 2023-03-13
-
-### 🛡️ Security notices
+### security
 - Major fix
-- ### enhancement
+- 
+### enhancement
 - bump everything
 - I dont understand
 
