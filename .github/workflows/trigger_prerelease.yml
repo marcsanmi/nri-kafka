@@ -31,6 +31,8 @@ jobs:
         run: |
           git config user.name newrelic-coreint-team
           git config user.email coreint-dev@newrelic.com
+          echo "Testing is-whole=${{ steps.release-data }}"
+          echo "Testing is-outputs=${{ steps.release-data.outputs }}"
           echo "Testing is-empty=${{ steps.release-data.outputs.is-empty }}"
           echo "Testing is-held=${{ steps.release-data.outputs.is-held }}"
       - name: Commit updated changelog
