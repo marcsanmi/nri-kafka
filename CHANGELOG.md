@@ -11,10 +11,11 @@ Holding release as it contains massive breaking changess
 
 ## Unreleased
 
-### security
+## v3.4.0 - 2023-03-14
+
+### 🛡️ Security notices
 - Major fix
-- 
-### enhancement
+- ### enhancement
 - bump everything
 - I dont understand
 
