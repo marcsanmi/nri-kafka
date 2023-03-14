@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Held
 
-Holding release as it contains massive breaking changess
+Holding release as it contains massive breaking change (2)
 
 ## Unreleased
 
