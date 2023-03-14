@@ -26,6 +26,12 @@ jobs:
           token: "${{ secrets.COREINT_BOT_TOKEN }}"
       - uses: newrelic/release-toolkit/contrib/ohi-release-notes@msanmiquel/add-is-empty
         id: release-data
+      - name: printer
+        run: |
+          echo "Testing is-whole=${{ steps.release-data }}"
+          echo "Testing is-outputs=${{ steps.release-data.outputs }}"
+          echo "Testing is-empty=${{ steps.release-data.outputs.is-empty }}"
+          echo "Testing is-held=${{ steps.release-data.outputs.is-held }}"
       - name: Configure Git
         if: ${{ steps.release-data.outputs.is-empty == 'false' && steps.release-data.outputs.is-held == 'false' }}
         run: |
