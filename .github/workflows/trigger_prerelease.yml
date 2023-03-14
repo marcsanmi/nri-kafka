@@ -26,20 +26,19 @@ jobs:
           token: "${{ secrets.COREINT_BOT_TOKEN }}"
       - uses: newrelic/release-toolkit/contrib/ohi-release-notes@msanmiquel/add-is-empty
         id: release-data
-      ## TODO here in case the release is empty or on hold we should stop gracefully.
       - name: Configure Git
-        if: ${{ success() && steps.empty-release.exitCode != 0 && steps.release-date.exitCode != 0 }}
+        if: ${{ steps.release-data.outputs.is-empty != true && steps.release-data.outputs.is-held != true }}
         run: |
           git config user.name newrelic-coreint-team
           git config user.email coreint-dev@newrelic.com
       - name: Commit updated changelog
-        if: ${{ success() && steps.empty-release.exitCode != 0 && steps.release-date.exitCode != 0 }}
+        if: ${{ steps.release-data.outputs.is-empty != true && steps.release-data.outputs.is-held != true }}
         run: |
           git add CHANGELOG.md
           git commit -m "Update changelog with changes from ${{ steps.release-data.outputs.next-version }}"
           git push -u origin ${{ github.event.repository.default_branch }}
       - name: Create prerelease
-        if: ${{ success() && steps.empty-release.exitCode != 0 && steps.release-date.exitCode != 0 }}
+        if: ${{ steps.release-data.outputs.is-empty != true && steps.release-data.outputs.is-held != true }}
         env:
           GH_TOKEN: "${{ secrets.COREINT_BOT_TOKEN }}"
         run: |
