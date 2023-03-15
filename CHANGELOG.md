@@ -11,7 +11,9 @@ Holding release as it contains massive breaking changes
 
 ## Unreleased
 
-### security
+## v3.6.0 - 2023-03-15
+
+### 🛡️ Security notices
 - bump majors (2)
 
 ## v3.5.0 - 2023-03-14
