@@ -38,7 +38,7 @@ jobs:
           git commit -m "Update changelog with changes from ${{ steps.release-data.outputs.next-version }}"
           git push -u origin ${{ github.event.repository.default_branch }}
       - name: Create prerelease
-        if: ${{ steps.release-data.outputs.is-empty == 'false' && steps.release-data.outputs.is-held == 'false' }}
+        if: ${{ steps.release-data.outputs.skip-release != 'true' }}
         env:
           GH_TOKEN: "${{ secrets.COREINT_BOT_TOKEN }}"
         run: |
